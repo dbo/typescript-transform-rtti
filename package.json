@@ -15,6 +15,14 @@
         "rtti",
         "literals"
     ],
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dbo/typescript-transform-rtti.git"
+    },
     "files": [
         "./dist/rtti",
         "./src/ts/rtti",
