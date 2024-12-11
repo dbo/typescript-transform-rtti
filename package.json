@@ -7,7 +7,7 @@
         "clean": "rm -rf ./dist; rm *.tsbuildinfo || true",
         "prepare": "ts-patch install",
         "build": "tsc --build --verbose",
-        "test": "node --test ./dist/tests"
+        "test": "node --test './dist/tests/**/*.js'"
     },
     "keywords": [
         "typescript",
