@@ -6,6 +6,7 @@ import {
     NumberBasedUnion,
     StringBasedEnum,
     StringBasedUnion,
+    type MixedUnion,
 } from "./types.js";
 
 function assertSameSet(ar1: any[], ar2: any[]) {
@@ -92,6 +93,11 @@ describe("rtti.literalsOf", () => {
 
     it("nested intersection", () => {
         assertSameSet(rtti.literalsOf<42 | (StringBasedUnion & "two-value")>(), [42, "two-value"]);
+    });
+
+    it("mixed", () => {
+        const act = rtti.literalsOf<StringBasedEnum | MixedUnion | "eight" | 5>();
+        assertSameSet(act, ["one-value", "two-value", "three-value", "6", 7, "eight", 5]);
     });
 
     it("weird example", () => {

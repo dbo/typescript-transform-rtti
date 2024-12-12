@@ -12,6 +12,8 @@ export const enum NumberBasedEnum {
 export type StringBasedUnion = "one-value" | "two-value" | "three-value";
 export type NumberBasedUnion = 1 | 2 | 3;
 
+export type MixedUnion = "6" | 7;
+
 export interface Inter {
     a: 5;
     b: 7;
