@@ -1,9 +1,11 @@
 # typescript-transform-rtti
+
 This transformer emits runtime type information (RTTI) about typescript types.
 
 There's currently just one intrinsic function that emits an array of values about literal unions and const enums, see [rtti.d.ts](./rtti.d.ts).
 
 ## `rtti.literalsOf<>()`
+
 An intrinsic function that gets replaced with a unique set of values about literal unions and const enums per type argument.
 Don't rely on a particular order.
 
@@ -19,11 +21,12 @@ z.enum(rtti.literalsOf<StringBasedEnum>() /* << replaced with ["1", "2"] */);
 // mixed types:
 type Another = "6" | 7;
 const literals = rtti.literalsOf<
-  StringBasedEnum | Another | "eight" | 5
->() /* << replaced with ["1", "2", "6", 7, "eight", 5] */;
+    StringBasedEnum | Another | "eight" | 5
+>(); /* << replaced with ["1", "2", "6", 7, "eight", 5] */
 ```
 
 ## Installation
+
 Use it alongside with `typescript` and [`ts-patch`](https://github.com/nonara/ts-patch) as a dev dependency, e.g.
 
 ```bash
@@ -31,6 +34,7 @@ $ npm install typescript-transform-rtti --save-dev
 ```
 
 Add it as a plugin in your `tsconfig.json`:
+
 ```json5
     "compilerOptions": {
         //...
