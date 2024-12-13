@@ -1,6 +1,6 @@
 {
     "name": "typescript-transform-rtti",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "license": "MIT",
     "main": "./dist/rtti/transform-rtti.js",
     "scripts": {
@@ -29,11 +29,17 @@
         "./rtti.d.ts"
     ],
     "devDependencies": {
+        "@eslint/compat": "^1.2.4",
+        "@eslint/js": "^9.16.0",
         "@tsconfig/node22": "^22.0.0",
         "@types/node": "^22",
         "@types/ts-expose-internals": "npm:ts-expose-internals@5.6.3",
+        "eslint": "^9.16.0",
+        "eslint-config-prettier": "^9.1.0",
+        "globals": "^15.13.0",
         "prettier": "^3.3.3",
-        "ts-node": "^10.9.2"
+        "ts-node": "^10.9.2",
+        "typescript-eslint": "^8.18.0"
     },
     "peerDependencies": {
         "ts-patch": "^3.3.0",

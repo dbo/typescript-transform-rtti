@@ -31,7 +31,7 @@ $ npm install typescript-transform-rtti --save-dev
 ```
 
 Add it as a plugin in your `tsconfig.json`:
-```json
+```json5
     "compilerOptions": {
         //...
         "plugins": [{

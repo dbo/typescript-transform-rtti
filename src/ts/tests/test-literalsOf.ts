@@ -108,7 +108,7 @@ describe("rtti.literalsOf", () => {
             | keyof Inter
             | "str"
             | Exclude<StringBasedEnum, StringBasedEnum.two>;
-        const act = rtti.literalsOf<ZZ>();
+        const act = rtti.literalsOf<ZZ, any>();
         assertSameSet(act, [5, 9, "a", "b", "c", "str", "one-value", "three-value"]);
     });
 });

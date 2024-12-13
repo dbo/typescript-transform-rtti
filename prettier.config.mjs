@@ -1,3 +1,4 @@
+/** @type {import("prettier").Config} */
 export default {
     useTabs: false,
     tabWidth: 4,
@@ -11,4 +12,14 @@ export default {
     bracketSpacing: true,
     bracketSameLine: false,
     arrowParens: "always",
+
+    overrides: [
+        {
+            files: ["*.css", "*.less", "*.sass", "*.scss", "*.json*"],
+            excludeFiles: ["package.json", "tsconfig.json"],
+            options: {
+                tabWidth: 2,
+            },
+        },
+    ],
 };

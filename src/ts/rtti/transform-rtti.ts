@@ -26,7 +26,7 @@ export default function rtti(
                 ) {
                     if (node.expression.name.escapedText === literalsOf) {
                         const typeArgs = node.typeArguments || [];
-                        if (typeArgs.length !== 1) {
+                        if (typeArgs.length < 1 || typeArgs.length > 2) {
                             addDiagnostic(
                                 ts.createDiagnosticForNodeInSourceFile(
                                     sourceFile,
