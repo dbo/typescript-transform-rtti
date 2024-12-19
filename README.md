@@ -1,5 +1,8 @@
 # typescript-transform-rtti
 
+![CI](https://github.com/dbo/typescript-transform-rtti/actions/workflows/ci.yml/badge.svg)
+![NPM Version](https://img.shields.io/npm/v/typescript-transform-rtti)
+
 This transformer emits runtime type information (RTTI) about typescript types.
 
 There's currently just one intrinsic function that emits an array of values about literal unions and const enums, see [rtti.d.ts](./rtti.d.ts).

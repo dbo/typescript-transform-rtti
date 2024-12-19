@@ -1,13 +1,11 @@
-import globals from "globals";
-import eslint from "@eslint/js";
-import ts_eslint from "typescript-eslint";
-import eslint_config_prettier from "eslint-config-prettier";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
 import { includeIgnoreFile } from "@eslint/compat";
+import eslint from "@eslint/js";
+import eslint_config_prettier from "eslint-config-prettier";
+import globals from "globals";
+import { join } from "node:path";
+import ts_eslint from "typescript-eslint";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const gitignorePath = join(__dirname, ".gitignore");
+const gitignorePath = join(import.meta.dirname, ".gitignore");
 
 export default ts_eslint.config(
     includeIgnoreFile(gitignorePath),
