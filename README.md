@@ -1,7 +1,7 @@
 # typescript-transform-rtti
 
-![CI](https://github.com/dbo/typescript-transform-rtti/actions/workflows/ci.yml/badge.svg)
-![NPM Version](https://img.shields.io/npm/v/typescript-transform-rtti)
+<a href="https://github.com/dbo/typescript-transform-rtti/actions">![CI](https://github.com/dbo/typescript-transform-rtti/actions/workflows/ci.yml/badge.svg)</a>
+<a href="https://www.npmjs.com/package/typescript-transform-rtti">![NPM Version](https://img.shields.io/npm/v/typescript-transform-rtti)</a>
 
 This transformer emits runtime type information (RTTI) about typescript types.
 
