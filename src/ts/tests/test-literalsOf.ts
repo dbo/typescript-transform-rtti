@@ -84,7 +84,7 @@ describe("rtti.literalsOf<>(), rtti.LiteralsOf<>", () => {
         assertTypeLiteralsOf(exp, "single-string");
     });
     it("number literal union", () => {
-        const exp = [1, 2, 3];
+        const exp = [2, 1, 3];
         assertSameSet(rtti.literalsOf<NumberBasedUnion>(), exp);
         assertTypeLiteralsOf(exp, "number-literal-union", 1);
     });
@@ -94,12 +94,12 @@ describe("rtti.literalsOf<>(), rtti.LiteralsOf<>", () => {
         assertTypeLiteralsOf(exp, "single-number");
     });
     it("mixed literal union", () => {
-        const exp = [1, 2, 3, "one-value", "two-value", "three-value", 42, "foo"];
+        const exp = [2, 1, 3, "one-value", "two-value", "three-value", "foo", 42];
         assertSameSet(rtti.literalsOf<NumberBasedUnion | StringBasedEnum | 42 | "foo">(), exp);
         assertTypeLiteralsOf(exp, "mixed-literal-union", 1);
     });
     it("mixed literal union with duplicates from const enum", () => {
-        const exp = [1, 2, 3, "one-value", "two-value", "three-value", 42, "foo"];
+        const exp = [2, 1, 3, "one-value", "two-value", "three-value", "foo", 42];
         assertSameSet(
             rtti.literalsOf<NumberBasedUnion | StringBasedEnum | StringBasedEnum | 42 | "foo">(),
             exp,
@@ -131,20 +131,20 @@ describe("rtti.literalsOf<>(), rtti.LiteralsOf<>", () => {
     });
 
     it("nested intersection", () => {
-        const exp = [42, "two-value"];
+        const exp = ["two-value", 42];
         assertSameSet(rtti.literalsOf<42 | (StringBasedUnion & "two-value")>(), exp);
         assertTypeLiteralsOf(exp, "nested-intersection", 1);
     });
 
     it("mixed", () => {
-        const exp = ["one-value", "two-value", "three-value", "6", 7, "eight", 5];
+        const exp = [5, 7, "6", "one-value", "two-value", "three-value", "eight"];
         const act = rtti.literalsOf<StringBasedEnum | MixedUnion | "eight" | 5>();
         assertSameSet(act, exp);
         assertTypeLiteralsOf(exp, "mixed", 1);
     });
 
     it("weird example", () => {
-        const exp = [5, 9, "a", "b", "c", "str", "one-value", "three-value"];
+        const exp = [5, 9, "one-value", "three-value", "a", "b", "c", "str"];
         type ZZ =
             | 5
             | (7 & 8)
