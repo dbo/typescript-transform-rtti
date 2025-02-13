@@ -9,6 +9,9 @@ const gitignorePath = join(import.meta.dirname, ".gitignore");
 
 export default ts_eslint.config(
     includeIgnoreFile(gitignorePath),
+    {
+        ignores: ["src/ts/tests/TypeLiteralsOf-cases/*.ts"],
+    },
     eslint.configs.recommended,
     ...ts_eslint.configs.recommended,
     {
