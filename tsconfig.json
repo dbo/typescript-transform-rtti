@@ -19,6 +19,10 @@
         "plugins": [
             {
                 "transform": "./src/ts/rtti/transform-rtti.ts"
+            },
+            {
+                "transform": "./src/ts/rtti/transform-rtti.ts",
+                "afterDeclarations": true
             }
         ]
     },
