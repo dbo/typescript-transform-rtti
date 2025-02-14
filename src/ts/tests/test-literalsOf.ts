@@ -1,5 +1,6 @@
 import { strict as assert } from "node:assert";
 import { describe, it } from "node:test";
+import { readTestFile } from "./test-util.js";
 import {
     Inter,
     NumberBasedEnum,
@@ -8,8 +9,6 @@ import {
     StringBasedUnion,
     type MixedUnion,
 } from "./types.js";
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 
 function assertSameSet(ar1: any[], ar2: any[]) {
     const len = ar1.length;
@@ -23,11 +22,7 @@ function assertSameSet(ar1: any[], ar2: any[]) {
 }
 
 function assertTypeLiteralsOf(literals: (string | number)[], file: string, skipFirst: number = 0) {
-    const str = String(readFileSync(join(__dirname, "TypeLiteralsOf-cases", `${file}.d.ts`)));
-    const actLines = str.split("\n");
-    while (skipFirst--) {
-        actLines.shift();
-    }
+    const actLines = readTestFile(`TypeLiteralsOf-cases/${file}.d.ts`, skipFirst);
 
     const lit = literals.map((elem) => (typeof elem === "string" ? `"${elem}"` : elem)).join(" | ");
     const exp = `export type T = ${lit};

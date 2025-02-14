@@ -134,17 +134,19 @@ export default function rtti(
             }
 
             function visit(node: ts.Node): ts.Node {
-                if (ts.isTypeNode(node)) {
-                    return visitType(node);
-                }
-                if (ts.isTypeAliasDeclaration(node)) {
-                    return factory.updateTypeAliasDeclaration(
-                        node,
-                        node.modifiers,
-                        node.name,
-                        node.typeParameters,
-                        visitType(node.type),
-                    );
+                if (sourceFile.isDeclarationFile) {
+                    if (ts.isTypeNode(node)) {
+                        return visitType(node);
+                    }
+                    if (ts.isTypeAliasDeclaration(node)) {
+                        return factory.updateTypeAliasDeclaration(
+                            node,
+                            node.modifiers,
+                            node.name,
+                            node.typeParameters,
+                            visitType(node.type),
+                        );
+                    }
                 }
 
                 if (
